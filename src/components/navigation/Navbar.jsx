@@ -30,6 +30,7 @@ export default function Navbar() {
   const isActive = (to) => (to === '/' ? pathname === '/' : pathname.startsWith(to))
 
   return (
+    <>
     <header
       className={cx(
         'fixed inset-x-0 top-0 z-50 transition-colors duration-300',
@@ -77,6 +78,8 @@ export default function Navbar() {
         </button>
       </nav>
 
+    </header>
+
       <AnimatePresence>
         {open && (
           <motion.div
@@ -85,13 +88,13 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 top-16 bg-ink md:hidden"
+            className="fixed inset-x-0 bottom-0 top-16 z-40 h-[calc(100dvh-4rem)] overflow-y-auto bg-ink md:hidden"
           >
             <motion.ul
               initial="hidden"
               animate="show"
               variants={{ show: { transition: { staggerChildren: 0.06, delayChildren: 0.08 } } }}
-              className="flex h-full flex-col justify-center gap-2 px-5 pb-24"
+              className="flex min-h-full flex-col justify-center gap-2 px-5 py-8"
             >
               {navItems.map(({ label, to }, i) => (
                 <motion.li
@@ -116,6 +119,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </>
   )
 }

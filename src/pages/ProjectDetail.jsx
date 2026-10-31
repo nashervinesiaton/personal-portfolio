@@ -38,11 +38,13 @@ export default function ProjectDetail() {
   if (!project) return <Navigate to="/projects" replace />
 
   const { caseStudy: c } = project
+  const shots = project.screenshots ?? []
+  const moreShots = shots.slice(1)
   const next = projects[(projects.indexOf(project) + 1) % projects.length]
 
   return (
     <>
-      <PageHeader label={`Case study ${project.index} · ${project.type}`} title={project.name}>
+      <PageHeader label={`Project details ${project.index} · ${project.type}`} title={project.name}>
         {project.fullTitle && <p className="text-sm italic">{project.fullTitle}</p>}
       </PageHeader>
 
@@ -67,7 +69,7 @@ export default function ProjectDetail() {
         </div>
 
         <div className="mt-12">
-          <ProjectVisual project={project} aspect="aspect-[16/9]" />
+          <ProjectVisual screenshot={shots[0]} aspect="aspect-[16/9]" />
         </div>
 
         <div className="mt-16">
@@ -107,32 +109,20 @@ export default function ProjectDetail() {
           <Block number="07" title="Key features">
             <List items={c.features} />
           </Block>
-          <Block number="08" title="System architecture">
-            {c.architecture.length ? (
-              <ol className="space-y-px border border-line bg-line">
-                {c.architecture.map(({ layer, detail }) => (
-                  <li key={layer} className="grid gap-1 bg-ink p-4 sm:grid-cols-[10rem_1fr]">
-                    <span className="font-display font-semibold text-paper">{layer}</span>
-                    <span className="text-base">{detail}</span>
-                  </li>
-                ))}
-              </ol>
-            ) : (
-              <Placeholder>[ARCHITECTURE DIAGRAM / DESCRIPTION TO BE ADDED]</Placeholder>
-            )}
-          </Block>
-          <Block number="09" title="Screenshots & demonstrations">
-            <div className="grid gap-4 sm:grid-cols-2">
-              <ProjectVisual project={project} aspect="aspect-[4/3]" />
-              <ProjectVisual project={project} aspect="aspect-[4/3]" />
-            </div>
-          </Block>
-          <Block number="10" title="Development challenges">
-            <p><Placeholder>{c.challenges}</Placeholder></p>
-          </Block>
-          <Block number="11" title="Lessons learned">
-            <p><Placeholder>{c.lessons}</Placeholder></p>
-          </Block>
+          {(shots.length === 0 || moreShots.length > 0) && (
+            <Block number="08" title="Screenshots & demonstrations">
+              <div className="grid gap-4 sm:grid-cols-2">
+                {shots.length === 0 ? (
+                  <>
+                    <ProjectVisual aspect="aspect-[4/3]" />
+                    <ProjectVisual aspect="aspect-[4/3]" />
+                  </>
+                ) : (
+                  moreShots.map((shot) => <ProjectVisual key={shot.src} screenshot={shot} />)
+                )}
+              </div>
+            </Block>
+          )}
         </div>
       </div>
 

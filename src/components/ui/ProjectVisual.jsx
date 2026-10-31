@@ -3,9 +3,43 @@ import { cx } from '../../lib/utils'
 
 /**
  * Clearly labelled interface placeholder, shown until real screenshots are supplied.
- * Pass `image` to render an actual screenshot instead.
+ * Pass `screenshot` ({ src, ratio, alt }) to render an actual screenshot at its natural proportions,
+ * or `fill` to crop it into the given `aspect` so cards in a grid stay uniform.
  */
-export default function ProjectVisual({ project, image, className, aspect = 'aspect-[16/10]' }) {
+export default function ProjectVisual({ screenshot, className, aspect = 'aspect-[16/10]', fill = false }) {
+  if (screenshot) {
+    // Framed like a browser window so light screenshots read as layered, not flat on the dark page.
+    return (
+      <div className={cx('relative', fill && aspect, className)}>
+        <div className="absolute -bottom-3 -right-3 size-full border border-accent/70" aria-hidden />
+        <div
+          className={cx(
+            'relative border border-paper/25 bg-surface shadow-[0_24px_60px_-20px_rgba(0,0,0,0.8)]',
+            fill && 'flex h-full flex-col',
+          )}
+        >
+          <div className="flex items-center gap-1.5 border-b border-paper/15 bg-surface px-3 py-2.5" aria-hidden>
+            <span className="size-2.5 rounded-full bg-line" />
+            <span className="size-2.5 rounded-full bg-line" />
+            <span className="size-2.5 rounded-full bg-accent" />
+          </div>
+          <div
+            className={cx('overflow-hidden', fill && 'min-h-0 flex-1')}
+            style={fill ? undefined : { aspectRatio: screenshot.ratio }}
+          >
+            <motion.img
+              src={screenshot.src}
+              alt={screenshot.alt}
+              className={cx('size-full object-cover', fill && 'object-left-top')}
+              whileHover={{ scale: 1.03 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            />
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className={cx('relative overflow-hidden border border-line bg-surface', aspect, className)}>
       <motion.div
@@ -13,10 +47,7 @@ export default function ProjectVisual({ project, image, className, aspect = 'asp
         whileHover={{ scale: 1.04 }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       >
-        {image ? (
-          <img src={image} alt={`${project.name} screenshot`} className="size-full object-cover" loading="lazy" />
-        ) : (
-          <div className="grid-lines grain relative size-full">
+        <div className="grid-lines grain relative size-full">
             {/* Wireframe window */}
             <div className="absolute inset-[8%] flex flex-col border border-line bg-ink/80">
               <div className="flex items-center gap-1.5 border-b border-line px-3 py-2">
@@ -44,8 +75,7 @@ export default function ProjectVisual({ project, image, className, aspect = 'asp
             <p className="absolute bottom-3 left-4 font-sans text-[10px] font-medium uppercase tracking-[0.2em] text-mute">
               Interface placeholder — screenshot to be added
             </p>
-          </div>
-        )}
+        </div>
       </motion.div>
     </div>
   )

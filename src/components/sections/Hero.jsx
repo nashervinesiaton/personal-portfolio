@@ -56,7 +56,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.4, ease }}
-          className="relative mx-auto w-full max-w-xs self-end sm:max-w-sm lg:col-span-4 lg:mx-0 lg:mb-4 lg:translate-y-10"
+          className="relative mx-auto w-full max-w-xs sm:max-w-sm lg:col-span-4 lg:mx-0 lg:mt-14 lg:self-start"
         >
           <div className="absolute -bottom-4 -left-4 size-full border border-accent" aria-hidden />
           <div className="relative aspect-[4/5] overflow-hidden border border-line bg-surface">

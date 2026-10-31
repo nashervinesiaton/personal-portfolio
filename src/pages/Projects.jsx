@@ -35,7 +35,7 @@ export default function Projects() {
         </ul>
       </section>
 
-      <FeaturedProjects showAllLink={false} />
+      <FeaturedProjects all />
     </>
   )
 }
