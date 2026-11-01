@@ -9,7 +9,7 @@ export const profile = {
   intro:
     'BSIS student at West Visayas State University, specializing in Business Application Development. I enjoy turning real organizational problems into practical, working software.',
   email: 'nashervinesiaton@gmail.com',
-  location: '', // e.g. 'Iloilo, Philippines'
+  location: 'Iloilo, Philippines',
   github: 'https://github.com/nashervinesiaton',
   linkedin: 'https://www.linkedin.com/in/nash-ervine-siaton-252826446/',
   cvUrl: '', // e.g. '/Nash-Siaton-CV.pdf' once the PDF is placed in /public
@@ -31,7 +31,7 @@ export const education = [
     school: 'West Visayas State University',
     degree: 'Bachelor of Science in Information Systems (BSIS)',
     focus: 'Specialization: Business Application Development',
-    period: '[YEAR START] — [YEAR END / EXPECTED]',
+    period: '2023 — 2027',
   },
 ]
 
@@ -44,10 +44,10 @@ export const skills = [
 ]
 
 export const achievements = [
-  { group: 'Academic Achievements', items: ['[ACHIEVEMENT TO ADD — e.g. award, semester]'] },
+  { group: 'Academic Achievements', items: ['Bronze Medalist — Second Year, School Year 2024–2025'] },
   { group: 'Certifications', items: ['[CERTIFICATION TO ADD — issuer, year]'] },
   { group: 'Seminars & Webinars', items: ['[SEMINAR / WEBINAR TO ADD — title, date]'] },
-  { group: 'Extracurricular Activities', items: ['[ORGANIZATION / ACTIVITY TO ADD — role, year]'] },
+  { group: 'Extracurricular Activities', items: ['Board Member for Programs — Axis, School Year 2025–2026'] },
 ]
 
 export const navItems = [
