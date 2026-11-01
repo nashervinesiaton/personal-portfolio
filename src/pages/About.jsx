@@ -9,7 +9,7 @@ import Reveal from '../components/ui/Reveal'
 export default function About() {
   return (
     <>
-      <PageHeader label="About" title="An aspiring developer with an eye for practical problems." />
+      <PageHeader label="About" title="An aspiring frontend developer with an eye for practical problems." />
 
       <section className="mx-auto grid max-w-7xl gap-12 px-5 py-20 md:px-10 md:py-28 lg:grid-cols-12">
         <Reveal className="space-y-5 text-base leading-relaxed text-mute md:text-lg lg:col-span-6">

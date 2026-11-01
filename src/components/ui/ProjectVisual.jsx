@@ -4,7 +4,7 @@ import { cx } from '../../lib/utils'
 /**
  * Clearly labelled interface placeholder, shown until real screenshots are supplied.
  * Pass `screenshot` ({ src, ratio, alt }) to render an actual screenshot at its natural proportions,
- * or `fill` to crop it into the given `aspect` so cards in a grid stay uniform.
+ * or `fill` to zoom into the top-left of it inside the given `aspect`, so grid cards stay uniform and text stays legible.
  */
 export default function ProjectVisual({ screenshot, className, aspect = 'aspect-[16/10]', fill = false }) {
   if (screenshot) {
@@ -24,13 +24,13 @@ export default function ProjectVisual({ screenshot, className, aspect = 'aspect-
             <span className="size-2.5 rounded-full bg-accent" />
           </div>
           <div
-            className={cx('overflow-hidden', fill && 'min-h-0 flex-1')}
+            className={cx('overflow-hidden', fill && 'relative min-h-0 flex-1')}
             style={fill ? undefined : { aspectRatio: screenshot.ratio }}
           >
             <motion.img
               src={screenshot.src}
               alt={screenshot.alt}
-              className={cx('size-full object-cover', fill && 'object-left-top')}
+              className={cx(fill ? 'absolute left-0 top-0 h-auto w-[150%] max-w-none' : 'size-full object-cover')}
               whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             />

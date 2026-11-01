@@ -4,7 +4,7 @@ const portraits = import.meta.glob('../assets/portrait.{jpg,jpeg,png,webp}', { e
 export const profile = {
   name: 'Nash Ervine Siaton',
   shortName: 'Nash Siaton',
-  title: 'Aspiring Application Developer',
+  title: 'Aspiring Frontend Developer',
   headline: 'Building meaningful digital solutions through code, creativity, and problem-solving.',
   intro:
     'BSIS student at West Visayas State University, specializing in Business Application Development. I enjoy turning real organizational problems into practical, working software.',
