@@ -36,10 +36,10 @@ export const education = [
 ]
 
 export const skills = [
-  { category: 'Programming Languages', items: [{ name: 'JavaScript' }, { name: 'Python' }, { name: '[TO VERIFY]', pending: true }] },
-  { category: 'Frontend Development', items: [{ name: 'React' }, { name: 'Tailwind CSS' }, { name: '[TO VERIFY]', pending: true }] },
-  { category: 'Backend Development', items: [{ name: 'FastAPI' }, { name: 'Supabase' }, { name: '[TO VERIFY]', pending: true }] },
-  { category: 'Database Management', items: [{ name: 'PostgreSQL (via Supabase)' }, { name: '[TO VERIFY]', pending: true }] },
+  { category: 'Programming Languages', items: [{ name: 'JavaScript' }, { name: 'Python' }, { name: 'PHP' }] },
+  { category: 'Frontend Development', items: [{ name: 'React' }, { name: 'HTML' }, { name: 'CSS' }, { name: 'Tailwind CSS' }, { name: 'JavaScript' }] },
+  { category: 'Backend Development', items: [{ name: 'PHP' }, { name: 'Python' }, { name: 'FastAPI' }] },
+  { category: 'Database Management', items: [{ name: 'MySQL (via XAMPP)' }, { name: 'PostgreSQL (via Supabase)' }] },
   { category: 'Development Tools', items: [{ name: 'Git & GitHub' }, { name: 'Vercel' }, { name: 'Vite' }] },
 ]
 
