@@ -15,28 +15,24 @@ export default function FeaturedProjects({ all = false, showAllLink = !all }) {
   return (
     <section className="bg-ink-2 py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-5 md:px-10">
-        <Reveal className="mb-20 grid gap-8 md:grid-cols-12 md:items-end md:gap-12">
-          <div className="md:col-span-8">
-            <p className="mb-6 flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-mute">
-              <span className="text-accent">02</span>
-              <span className="h-px w-8 bg-line" />
-              Selected work
-            </p>
-            <h2 className="max-w-4xl font-display text-5xl font-bold leading-[0.95] tracking-tighter md:text-7xl">
-              Projects built around real problems.
-            </h2>
-          </div>
-          <div className="md:col-span-4 md:pb-1">
-            <p className="max-w-sm text-sm leading-relaxed text-mute md:text-base">
-              A selection of academic and personal projects focused on building practical digital solutions through development, experimentation, and problem-solving.
-            </p>
-            {showAllLink && (
-              <Link to="/projects" className="group mt-6 inline-flex items-center gap-2 text-sm font-semibold text-paper transition-colors hover:text-accent">
-                View all projects
-                <ArrowUpRight size={16} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </Link>
-            )}
-          </div>
+        <Reveal className="mb-20 max-w-3xl md:mb-24">
+          <p className="mb-6 flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-mute">
+            <span className="text-accent">02</span>
+            <span className="h-px w-8 bg-line" />
+            Selected work
+          </p>
+          <h2 className="font-display text-5xl font-bold leading-[0.95] tracking-tighter md:text-7xl">
+            Projects built around real problems.
+          </h2>
+          <p className="mt-8 max-w-2xl text-sm leading-relaxed text-mute md:text-base">
+            A selection of academic and personal projects focused on building practical digital solutions through development, experimentation, and problem-solving.
+          </p>
+          {showAllLink && (
+            <Link to="/projects" className="group mt-6 inline-flex items-center gap-2 text-sm font-semibold text-paper transition-colors hover:text-accent">
+              View all projects
+              <ArrowUpRight size={16} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </Link>
+          )}
         </Reveal>
 
         {primary && <ProjectFeature project={primary} index="01" variant="hero" />}

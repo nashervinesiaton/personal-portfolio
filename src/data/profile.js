@@ -22,8 +22,8 @@ export const aboutSummary = {
     'I am interested in building practical applications that help organizations run better — from data-driven management systems to everyday tools.',
   ],
   philosophy:
-    'Good software starts with understanding the people and processes it serves. I aim to build things that are clear, useful, and maintainable.',
-  interests: ['Application development', 'Business information systems', 'Data analysis & forecasting', 'Web technologies'],
+    'Good software begins with a deep understanding of the people and processes it is designed to serve. My goal is to create solutions that are clear, useful, and easy to maintain.',
+  interests: ['Software & Application Development', 'Frontend Development & User Interfaces', 'Backend Development & Database Management', 'Business Systems & Process Automation'],
 }
 
 export const education = [
