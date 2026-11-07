@@ -36,11 +36,41 @@ export const education = [
 ]
 
 export const skills = [
-  { category: 'Programming Languages', items: [{ name: 'JavaScript' }, { name: 'Python' }, { name: 'PHP' }] },
-  { category: 'Frontend Development', items: [{ name: 'React' }, { name: 'HTML' }, { name: 'CSS' }, { name: 'Tailwind CSS' }, { name: 'JavaScript' }] },
-  { category: 'Backend Development', items: [{ name: 'PHP' }, { name: 'Python' }, { name: 'FastAPI' }] },
-  { category: 'Database Management', items: [{ name: 'MySQL (via XAMPP)' }, { name: 'PostgreSQL (via Supabase)' }] },
-  { category: 'Development Tools', items: [{ name: 'Git & GitHub' }, { name: 'Vercel' }, { name: 'Vite' }] },
+  {
+    category: 'Frontend Development',
+    items: [
+      { name: 'React', slug: 'react' },
+      { name: 'HTML', slug: 'html5' },
+      { name: 'CSS', slug: 'css' },
+      { name: 'Tailwind CSS', slug: 'tailwindcss' },
+      { name: 'JavaScript', slug: 'javascript' },
+    ],
+  },
+  {
+    category: 'Backend Development',
+    items: [
+      { name: 'PHP', slug: 'php' },
+      { name: 'Python', slug: 'python' },
+      { name: 'FastAPI', slug: 'fastapi' },
+    ],
+  },
+  {
+    category: 'Database Management',
+    items: [
+      { name: 'MySQL', slug: 'mysql' },
+      { name: 'PostgreSQL', slug: 'postgresql' },
+      { name: 'Supabase', slug: 'supabase' },
+    ],
+  },
+  {
+    category: 'Development Tools',
+    items: [
+      { name: 'Git', slug: 'git' },
+      { name: 'GitHub', slug: 'github' },
+      { name: 'Vercel', slug: 'vercel' },
+      { name: 'Vite', slug: 'vite' },
+    ],
+  },
 ]
 
 export const achievements = [

@@ -1,5 +1,6 @@
 import ttmpcReports from '../assets/ttmpc-assets/Interface-TTMPC.png'
 import fureverhomeAllPets from '../assets/fureverhome/furever.webp'
+import nahumStockDashboard from '../assets/nahum-stock-dashboard.png'
 
 const TBA = '[TO BE COMPLETED]'
 
@@ -98,7 +99,49 @@ export const projects = [
       ],
     },
   }),
-  placeholderProject('Nahum Stock', 2),
+  {
+    slug: 'nahum-stock',
+    featured: false,
+    index: '04',
+    name: 'Nahum Stock',
+    type: 'Academic / Group Project · Fully Functional',
+    category: 'Web Application · Inventory Management',
+    fullTitle: 'An Integrated Inventory Management System for Café Nahum',
+    summary:
+      'An integrated inventory management system for Café Nahum that centralizes stock monitoring, inventory records, supplier information, expiration tracking, and inventory transactions.',
+    tech: ['PHP', 'MySQL', 'HTML', 'CSS', 'JavaScript'],
+    screenshots: [{ src: nahumStockDashboard, ratio: '1024 / 582', alt: 'Nahum Stock inventory management dashboard showing stock levels, inventory status, quick actions, and recent transactions' }],
+    repo: '',
+    live: '',
+    caseStudy: {
+      overview:
+        'Nahum Stock streamlines Café Nahum inventory operations through automated stock monitoring, centralized record management, and inventory tracking. It replaces spreadsheet-based processes with a digital solution designed to improve accuracy, reduce manual work, minimize waste, and support more efficient daily operations.',
+      problem:
+        'Café Nahum relied on manual records and spreadsheets, making inventory updates error-prone and inconsistent with actual stock. Low-stock items, products nearing expiration, supplier information, and inventory reports all required additional manual effort without a centralized management platform.',
+      objectives: [
+        'Automate inventory monitoring and stock-level tracking.',
+        'Record stock-in and stock-out transactions.',
+        'Monitor product expiration dates and minimize inventory waste.',
+        'Generate low-stock alerts for timely restocking.',
+        'Centralize supplier information and procurement records.',
+        'Provide inventory reports for operational monitoring and decision-making.',
+        'Improve inventory accuracy and controlled access to information.',
+      ],
+      solution:
+        'Nahum Stock provides a centralized inventory management platform tailored to Café Nahum. Authorized personnel can manage supplies, record stock movements, monitor quantities, maintain supplier information, and review low-stock and expiration alerts through an organized interface with reporting and audit capabilities.',
+      role: 'Backend Developer. I developed the application logic, database operations, authentication, and server-side functionality supporting the inventory management processes.',
+      features: [
+        'Centralized inventory records and stock quantity management',
+        'Stock-in and stock-out transaction tracking',
+        'Low-stock monitoring and replenishment support',
+        'Product expiration monitoring',
+        'Supplier and procurement record management',
+        'Inventory, stock movement, usage, and replenishment reports',
+        'Audit logging for inventory modifications and user activity',
+        'User authentication and access control',
+      ],
+    },
+  },
   placeholderProject('KonektaDose', 3),
 ]
 
