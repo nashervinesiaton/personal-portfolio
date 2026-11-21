@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
-import { motion } from 'motion/react'
+import { motion, useReducedMotion } from 'motion/react'
 import Navbar from '../navigation/Navbar'
 import Footer from './Footer'
 
@@ -14,6 +14,7 @@ function ScrollToTop() {
 
 export default function Layout() {
   const { pathname } = useLocation()
+  const reducedMotion = useReducedMotion()
 
   return (
     <>
@@ -28,9 +29,9 @@ export default function Layout() {
       <motion.main
         id="main"
         key={pathname}
-        initial={{ opacity: 0, y: 12 }}
+        initial={reducedMotion ? false : { opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+        transition={reducedMotion ? { duration: 0 } : { duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
       >
         <Outlet />
       </motion.main>

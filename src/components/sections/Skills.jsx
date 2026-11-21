@@ -1,17 +1,61 @@
 import { skills } from '../../data/profile'
 import Reveal from '../ui/Reveal'
 import SectionHeading from '../ui/SectionHeading'
+import {
+  siCss,
+  siFastapi,
+  siGit,
+  siGithub,
+  siHtml5,
+  siJavascript,
+  siMysql,
+  siPhp,
+  siPostgresql,
+  siPython,
+  siReact,
+  siSupabase,
+  siTailwindcss,
+  siVercel,
+  siVite,
+} from 'simple-icons'
+
+const technologyIcons = {
+  css: siCss,
+  fastapi: siFastapi,
+  git: siGit,
+  github: siGithub,
+  html5: siHtml5,
+  javascript: siJavascript,
+  mysql: siMysql,
+  php: siPhp,
+  postgresql: siPostgresql,
+  python: siPython,
+  react: siReact,
+  supabase: siSupabase,
+  tailwindcss: siTailwindcss,
+  vercel: siVercel,
+  vite: siVite,
+}
 
 function Technology({ name, slug }) {
+  const icon = technologyIcons[slug]
+
   return (
     <li className="skills-tech group flex items-center gap-3 border-b border-line/70 py-3 last:border-b-0">
       <span className="skills-icon flex size-9 shrink-0 items-center justify-center border border-line bg-ink-2 p-2 text-accent transition-transform duration-300 group-hover:scale-110">
-        <img
-          src={`https://cdn.simpleicons.org/${slug}/66B538`}
-          alt=""
-          className="size-full object-contain"
-          loading="lazy"
-        />
+        {icon ? (
+          <svg
+            viewBox="0 0 24 24"
+            role="img"
+            aria-label={`${name} logo`}
+            className="size-full"
+            fill="#66B538"
+          >
+            <path d={icon.path} />
+          </svg>
+        ) : (
+          <span className="text-xs font-bold" aria-label={`${name} logo`}>{name.slice(0, 2)}</span>
+        )}
       </span>
       <span className="font-display text-sm font-medium text-mute transition-colors duration-300 group-hover:text-paper">
         {name}
@@ -54,7 +98,7 @@ function SkillPanel({ category, items, index }) {
 
 export default function Skills({ number = '03' }) {
   return (
-    <section className="mx-auto max-w-7xl px-5 py-24 md:px-10 md:py-32">
+    <section className="mx-auto max-w-7xl px-5 py-16 md:px-10 md:py-24">
       <SectionHeading number={number} label="Technical skills" title="The tools I work with." />
 
       <div className="skills-grid">

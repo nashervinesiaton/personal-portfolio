@@ -101,7 +101,7 @@ export default function ContactForm() {
         type="submit"
         className="inline-flex min-h-12 items-center justify-center bg-accent px-8 text-sm font-semibold tracking-wide text-ink transition-colors hover:bg-paper"
       >
-        Send message
+        Open email draft
       </button>
 
       <div role="status" aria-live="polite">

@@ -1,4 +1,4 @@
-import { motion } from 'motion/react'
+import { motion, useMotionValue, useReducedMotion, useSpring } from 'motion/react'
 import { User } from 'lucide-react'
 import { profile } from '../../data/profile'
 import { ease } from '../../lib/motion'
@@ -10,10 +10,37 @@ const container = { hidden: {}, show: { transition: { staggerChildren: 0.1, dela
 const item = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0, transition: { duration: 0.7, ease } } }
 
 export default function Hero() {
+  const reducedMotion = useReducedMotion()
+  const rotateX = useMotionValue(0)
+  const rotateY = useMotionValue(0)
+  const springRotateX = useSpring(rotateX, { stiffness: 180, damping: 22 })
+  const springRotateY = useSpring(rotateY, { stiffness: 180, damping: 22 })
+
+  const handlePortraitMove = (event) => {
+    if (reducedMotion || event.pointerType === 'touch') return
+
+    const rect = event.currentTarget.getBoundingClientRect()
+    const x = (event.clientX - rect.left) / rect.width - 0.5
+    const y = (event.clientY - rect.top) / rect.height - 0.5
+
+    rotateX.set(y * -8)
+    rotateY.set(x * 8)
+  }
+
+  const resetPortrait = () => {
+    rotateX.set(0)
+    rotateY.set(0)
+  }
+
   return (
-    <section className="grain grid-lines relative overflow-hidden pt-28 md:pt-36">
-      <div className="relative mx-auto grid max-w-7xl gap-12 px-5 pb-16 md:px-10 md:pb-24 lg:grid-cols-12">
-        <motion.div variants={container} initial="hidden" animate="show" className="lg:col-span-8">
+    <section className="grain grid-lines relative overflow-hidden pt-24 md:pt-28">
+      <div className="relative mx-auto grid max-w-7xl gap-10 px-5 pb-12 md:px-10 md:pb-16 lg:grid-cols-12">
+        <motion.div
+          variants={container}
+          initial={reducedMotion ? false : 'hidden'}
+          animate="show"
+          className="lg:col-span-8"
+        >
           <motion.p
             variants={item}
             className="mb-8 flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-mute"
@@ -53,10 +80,13 @@ export default function Hero() {
 
         {/* Portrait — offset and layered for an asymmetrical composition */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={reducedMotion ? false : { opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.4, ease }}
-          className="relative mx-auto w-full max-w-xs sm:max-w-sm lg:col-span-4 lg:mx-0 lg:mt-14 lg:self-start"
+          transition={reducedMotion ? { duration: 0 } : { duration: 0.9, delay: 0.4, ease }}
+          onPointerMove={handlePortraitMove}
+          onPointerLeave={resetPortrait}
+          style={{ rotateX: springRotateX, rotateY: springRotateY, transformPerspective: 900 }}
+          className="relative mx-auto w-full max-w-[17rem] sm:max-w-[19rem] lg:col-span-4 lg:mx-0 lg:mt-10 lg:self-start lg:max-w-[20rem]"
         >
           <div className="absolute -bottom-4 -left-4 size-full border border-accent" aria-hidden />
           <div className="relative aspect-[4/5] overflow-hidden border border-line bg-surface">

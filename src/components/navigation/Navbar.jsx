@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'motion/react'
 import { Menu, X } from 'lucide-react'
@@ -16,6 +16,8 @@ export function Wordmark({ className }) {
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  const menuButtonRef = useRef(null)
+  const menuRef = useRef(null)
   const scrolled = useScrolled()
   const { pathname } = useLocation()
 
@@ -25,6 +27,37 @@ export default function Navbar() {
     return () => {
       document.body.style.overflow = ''
     }
+  }, [open])
+
+  useEffect(() => {
+    if (!open) return undefined
+
+    const menu = menuRef.current
+    const focusable = menu?.querySelectorAll('a, button')
+    const first = focusable?.[0]
+    const last = focusable?.[focusable.length - 1]
+    first?.focus()
+
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        event.preventDefault()
+        setOpen(false)
+        menuButtonRef.current?.focus()
+      }
+
+      if (event.key === 'Tab' && focusable?.length) {
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault()
+          last.focus()
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault()
+          first.focus()
+        }
+      }
+    }
+
+    document.addEventListener('keydown', onKeyDown)
+    return () => document.removeEventListener('keydown', onKeyDown)
   }, [open])
 
   const isActive = (to) => (to === '/' ? pathname === '/' : pathname.startsWith(to))
@@ -67,6 +100,7 @@ export default function Navbar() {
         </ul>
 
         <button
+          ref={menuButtonRef}
           type="button"
           onClick={() => setOpen((o) => !o)}
           aria-expanded={open}
@@ -83,6 +117,7 @@ export default function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
+            ref={menuRef}
             id="mobile-menu"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

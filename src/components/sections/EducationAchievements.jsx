@@ -5,7 +5,7 @@ import SectionHeading from '../ui/SectionHeading'
 
 export default function EducationAchievements() {
   return (
-    <section className="bg-ink-2 py-24 md:py-32">
+    <section className="bg-ink-2 py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-5 md:px-10">
         <SectionHeading number="04" label="Education & activities" title="Where I study, and what I take part in." />
 

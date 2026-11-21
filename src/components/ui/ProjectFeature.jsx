@@ -42,36 +42,37 @@ function ProjectMeta({ project, index }) {
 export default function ProjectFeature({ project, index = project.index, variant = 'hero' }) {
   if (variant === 'directory') {
     return (
-      <Reveal as="li" className="group relative overflow-hidden border-t border-line transition-colors duration-300 hover:bg-ink/40 last:border-b">
-        <Link to={`/projects/${project.slug}`} className="relative grid gap-5 px-4 py-8 md:grid-cols-12 md:items-center md:gap-6">
-          <span className="font-display text-3xl font-bold text-accent/70 md:col-span-1">{index}</span>
-          <div className="relative z-10 md:col-span-6">
+      <Reveal as="li" className="group h-full">
+        <Link
+          to={`/projects/${project.slug}`}
+          className="relative flex h-full min-h-64 flex-col overflow-hidden border border-line bg-surface p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/60 hover:shadow-[0_20px_50px_-30px_rgba(102,181,56,0.35)]"
+        >
+          <div className="mb-8 flex items-start justify-between gap-4">
+            <span className="font-display text-4xl font-bold leading-none text-accent/70">{index}</span>
+            <ArrowUpRight
+              size={20}
+              className="text-mute transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-accent"
+            />
+          </div>
+          <div className="relative z-10 mt-auto">
             <h3 className="font-display text-2xl font-bold tracking-tight transition-colors duration-300 group-hover:text-accent md:text-3xl">
               {project.name}
             </h3>
             <p className="mt-2 max-w-xl text-sm leading-relaxed text-mute">
               {isPlaceholder(project.summary) ? <Placeholder>Details to be added.</Placeholder> : project.summary}
             </p>
+            <p className="mt-3 text-[10px] font-medium uppercase tracking-[0.15em] text-accent">{project.status}</p>
             <ul className="mt-4 flex flex-wrap gap-2" aria-label={`${project.name} technologies`}>
               {project.tech.slice(0, 3).map((technology) => (
                 <li
                   key={technology}
-                  className="rounded-full border border-line px-2 py-1 text-[10px] font-medium uppercase tracking-[0.12em] text-mute transition-colors duration-300 group-hover:border-accent/50 group-hover:text-paper"
+                  className="border border-line px-2 py-1 text-[10px] font-medium uppercase tracking-[0.12em] text-mute transition-colors duration-300 group-hover:border-accent/50 group-hover:text-paper"
                 >
                   {isPlaceholder(technology) ? 'To verify' : technology}
                 </li>
               ))}
             </ul>
           </div>
-          {project.screenshots?.[0] && (
-            <div className="pointer-events-none absolute right-16 top-1/2 hidden aspect-[4/3] w-48 -translate-y-1/2 translate-x-4 overflow-hidden border border-line bg-surface opacity-0 shadow-2xl transition-all duration-500 group-hover:translate-x-0 group-hover:opacity-100 lg:block">
-              <img src={project.screenshots[0].src} alt="" className="size-full object-cover" />
-            </div>
-          )}
-          <ArrowUpRight
-            size={22}
-            className="absolute right-4 top-8 text-mute transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-accent md:right-5 md:top-1/2 md:-translate-y-1/2"
-          />
         </Link>
       </Reveal>
     )
@@ -81,11 +82,11 @@ export default function ProjectFeature({ project, index = project.index, variant
   const role = project.caseStudy?.role
 
   return (
-    <Reveal className={cx('relative', isSecondary && 'md:ml-[8%]')}>
+    <Reveal className="relative">
       <article
         className={cx(
-          'grid items-center gap-8 md:gap-12',
-          isSecondary ? 'md:grid-cols-12' : 'md:grid-cols-2',
+          'grid items-center gap-8 border border-line bg-surface p-5 shadow-[0_30px_70px_-45px_rgba(0,0,0,0.9)] md:p-8',
+          isSecondary ? 'md:grid-cols-12' : 'md:grid-cols-12',
         )}
       >
         <Link
@@ -93,7 +94,7 @@ export default function ProjectFeature({ project, index = project.index, variant
           aria-label={`${project.name} project details`}
           className={cx(
             'group block',
-            isSecondary ? 'md:order-2 md:col-span-7' : undefined,
+            isSecondary ? 'md:order-2 md:col-span-7' : 'md:col-span-7',
           )}
         >
           <ProjectVisual
@@ -105,7 +106,7 @@ export default function ProjectFeature({ project, index = project.index, variant
         <div
           className={cx(
             'flex flex-col gap-5',
-            isSecondary ? 'md:order-1 md:col-span-5 md:pr-4' : undefined,
+            isSecondary ? 'md:order-1 md:col-span-5 md:pr-4' : 'md:col-span-5',
           )}
         >
           <ProjectMeta project={project} index={index} />

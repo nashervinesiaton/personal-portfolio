@@ -23,6 +23,8 @@ export default function Projects() {
                 <span className="text-xs text-accent md:col-span-1">{p.index}</span>
                 <span className="font-display text-2xl font-bold md:col-span-6 md:text-3xl">{p.name}</span>
                 <span className="text-sm text-mute md:col-span-4">
+                  <span>{p.status}</span>
+                  <span className="mx-2 text-line">·</span>
                   <Placeholder>{p.type}</Placeholder>
                 </span>
                 <ArrowUpRight

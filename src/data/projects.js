@@ -9,6 +9,7 @@ const placeholderProject = (name, i, overrides = {}) => ({
   featured: false,
   index: String(i + 2).padStart(2, '0'),
   name,
+  status: 'Details pending',
   type: '[PROJECT TYPE TO ADD]',
   category: '[CATEGORY TO ADD]',
   summary: TBA,
@@ -32,6 +33,7 @@ export const projects = [
     featured: true,
     index: '01',
     name: 'TTMPC Integrated Management & Finance System',
+    status: 'Academic thesis project',
     type: 'Academic Thesis Project',
     category: 'Web Application · Finance',
     fullTitle:
@@ -64,9 +66,44 @@ export const projects = [
       ],
     },
   },
-  placeholderProject('TrackIT', 0),
+  {
+    slug: 'trackit',
+    featured: false,
+    index: '02',
+    name: 'TrackIT',
+    status: 'Academic group project',
+    type: 'Academic Group Project',
+    category: 'Web Application · Task Collaboration',
+    fullTitle: 'TrackIT: Task Recording and Collaboration Keeper',
+    summary:
+      'A task recording and collaboration system for managing workspaces, coordinating tasks, and keeping teams aligned.',
+    tech: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL'],
+    screenshots: [],
+    repo: '',
+    live: '',
+    caseStudy: {
+      overview:
+        'TrackIT is a web application for workspace management, task coordination, and team collaboration.',
+      problem:
+        'Teams need a shared place to organize work and track tasks instead of relying on scattered updates and manual follow-ups.',
+      objectives: [
+        'Give teams a shared workspace for organizing tasks.',
+        'Make task coordination easier to follow.',
+        'Support collaboration through a clear user-facing interface.',
+      ],
+      solution:
+        'I developed the user-facing interfaces and contributed to the UI/UX, testing, and debugging of the system using HTML, CSS, JavaScript, PHP, and MySQL.',
+      role: 'Primary Frontend Developer. I built the user-facing interfaces and contributed to UI/UX design, testing, and debugging.',
+      features: [
+        'Workspace management',
+        'Task recording and coordination',
+        'Team collaboration interface',
+      ],
+    },
+  },
   placeholderProject('FurEverHome', 1, {
     name: 'FurEverHome',
+    status: 'Academic group project',
     type: 'School Project',
     category: 'Web Application · Pet Adoption',
     fullTitle: 'FurEverHome: Pet Adoption Record System',
@@ -104,6 +141,7 @@ export const projects = [
     featured: false,
     index: '04',
     name: 'Nahum Stock',
+    status: 'Academic group project',
     type: 'Academic / Group Project · Fully Functional',
     category: 'Web Application · Inventory Management',
     fullTitle: 'An Integrated Inventory Management System for Café Nahum',
@@ -142,7 +180,34 @@ export const projects = [
       ],
     },
   },
-  placeholderProject('KonektaDose', 3),
+  placeholderProject('KonektaDose', 3, {
+    status: 'Academic group project',
+    type: 'Academic Group Project',
+    category: 'UI/UX Design · Health Technology',
+    fullTitle: 'KonektaDose: Smart IoT Pill Container Ecosystem',
+    summary:
+      'A smart pill-container concept that connects GSM-enabled sensors to a health worker dashboard for monitoring community medication adherence.',
+    tech: ['Figma'],
+    caseStudy: {
+      overview:
+        'KonektaDose combines a smart pill container with a web dashboard that helps health workers monitor missed medication doses.',
+      problem:
+        'Health workers need a clear way to see which community members may have missed a dose without checking each person manually.',
+      objectives: [
+        'Design a dashboard for reviewing community medication data.',
+        'Make missed doses easy to identify and follow up.',
+        'Map how sensor data moves into a centralized database.',
+      ],
+      solution:
+        'I designed the Health Worker Dashboard in Figma and contributed to the system architecture, including the data flow from GSM-enabled sensors to a centralized database.',
+      role: 'UI/UX Designer. I designed the Health Worker Dashboard and helped map the system data flow.',
+      features: [
+        'Health worker dashboard for community medication data',
+        'Missed-dose flags for follow-up',
+        'GSM sensor to database data-flow mapping',
+      ],
+    },
+  }),
 ]
 
 /** Projects shown on the home page, in order; the rest live on the Projects page. */

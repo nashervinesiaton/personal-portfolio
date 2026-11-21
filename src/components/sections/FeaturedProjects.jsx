@@ -10,12 +10,14 @@ export default function FeaturedProjects({ all = false, showAllLink = !all }) {
         (slug) => projects.find((project) => project.slug === slug),
       )
     : homeProjectSlugs.map((slug) => projects.find((project) => project.slug === slug))
-  const [primary, secondary, ...directory] = list
+  const [primary, secondary] = list
+  const featuredSlugs = [primary?.slug, secondary?.slug].filter(Boolean)
+  const directory = projects.filter((project) => !featuredSlugs.includes(project.slug))
 
   return (
-    <section className="bg-ink-2 py-24 md:py-32">
+    <section className="bg-ink-2 py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-5 md:px-10">
-        <Reveal className="mb-20 max-w-3xl md:mb-24">
+        <Reveal className="mb-14 max-w-3xl md:mb-16">
           <p className="mb-6 flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-mute">
             <span className="text-accent">02</span>
             <span className="h-px w-8 bg-line" />
@@ -38,23 +40,23 @@ export default function FeaturedProjects({ all = false, showAllLink = !all }) {
         {primary && <ProjectFeature project={primary} index="01" variant="hero" />}
 
         {secondary && (
-          <div className="mt-28 border-t border-line pt-14 md:mt-40 md:pt-20">
+          <div className="mt-20 border-t border-line pt-10 md:mt-24 md:pt-14">
             <ProjectFeature project={secondary} index="02" variant="secondary" />
           </div>
         )}
 
         {directory.length > 0 && (
-          <div className="mt-28 md:mt-40">
+          <div className="mt-20 md:mt-24">
             <div className="mb-8 flex items-end justify-between border-b border-line pb-4">
               <p className="text-xs font-medium uppercase tracking-[0.2em] text-mute">More work</p>
               <span className="text-xs text-accent">{String(directory.length).padStart(2, '0')} projects</span>
             </div>
-            <ul>
-              {directory.map((project, i) => (
+            <ul className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+              {directory.map((project) => (
                 <ProjectFeature
                   key={project.slug}
                   project={project}
-                  index={String(i + (all ? 3 : 3)).padStart(2, '0')}
+                  index={project.index}
                   variant="directory"
                 />
               ))}

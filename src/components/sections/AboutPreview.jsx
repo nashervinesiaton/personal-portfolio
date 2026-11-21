@@ -5,7 +5,7 @@ import SectionHeading from '../ui/SectionHeading'
 
 export default function AboutPreview() {
   return (
-    <section className="mx-auto max-w-7xl px-5 py-24 md:px-10 md:py-32">
+    <section className="mx-auto max-w-7xl px-5 py-16 md:px-10 md:py-24">
       <SectionHeading number="01" label="About" title="Software that serves the people behind the process." />
 
       <div className="grid gap-12 lg:grid-cols-12">

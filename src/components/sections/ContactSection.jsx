@@ -6,7 +6,7 @@ import SocialLinks from '../ui/SocialLinks'
 
 export default function ContactSection() {
   return (
-    <section className="grain relative overflow-hidden border-t border-line bg-ink py-24 md:py-36">
+    <section className="grain relative overflow-hidden border-t border-line bg-ink py-16 md:py-24">
       <div className="relative mx-auto grid max-w-7xl gap-16 px-5 md:px-10 lg:grid-cols-12">
         <Reveal className="lg:col-span-7">
           <p className="mb-6 flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-mute">
