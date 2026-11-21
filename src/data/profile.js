@@ -4,26 +4,25 @@ const portraits = import.meta.glob('../assets/portrait.{jpg,jpeg,png,webp}', { e
 export const profile = {
   name: 'Nash Ervine Siaton',
   shortName: 'Nash Siaton',
-  title: 'Aspiring Frontend Developer',
-  headline: 'Building meaningful digital solutions through code, creativity, and problem-solving.',
+  headline: 'I build interfaces for the systems people rely on every day.',
   intro:
-    'BSIS student at West Visayas State University, specializing in Business Application Development. I enjoy turning real organizational problems into practical, working software.',
+    'I am a BSIS student at West Visayas State University, focused on Business Application Development. I build interfaces for school and community projects, from cooperative finance tools to shelter records and café inventory.',
   email: 'nashervinesiaton@gmail.com',
   location: 'Iloilo, Philippines',
   github: 'https://github.com/nashervinesiaton',
   linkedin: 'https://www.linkedin.com/in/nash-ervine-siaton-252826446/',
-  cvUrl: '', // e.g. '/Nash-Siaton-CV.pdf' once the PDF is placed in /public
+  cvUrl: '/Nash-Ervine-Siaton-CV.pdf',
   portrait: Object.values(portraits)[0] ?? '',
 }
 
 export const aboutSummary = {
   paragraphs: [
-    'I am a Bachelor of Science in Information Systems student at West Visayas State University with a specialization in Business Application Development.',
-    'I am interested in building practical applications that help organizations run better — from data-driven management systems to everyday tools.',
+    'I study Information Systems at West Visayas State University, specializing in Business Application Development.',
+    'Most of my work starts with a messy process: scattered records, manual tracking, or information that is hard to find. I turn those processes into clearer interfaces and usable software.',
   ],
   philosophy:
-    'Good software begins with a deep understanding of the people and processes it is designed to serve. My goal is to create solutions that are clear, useful, and easy to maintain.',
-  interests: ['Software & Application Development', 'Frontend Development & User Interfaces', 'Backend Development & Database Management', 'Business Systems & Process Automation'],
+    'The best interface is usually the one that makes the next decision obvious. I care about clear screens, useful defaults, and software that fits the way people already work.',
+  interests: ['Frontend development', 'Business systems', 'Data and inventory workflows', 'Database-backed applications'],
 }
 
 export const education = [

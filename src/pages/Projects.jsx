@@ -9,7 +9,7 @@ export default function Projects() {
   return (
     <>
       <PageHeader label="Projects" title="Selected work.">
-        <p>A growing collection of software projects. Details marked as placeholders will be completed once verified.</p>
+        <p>Coursework and independent builds, with notes on the problem, my role, and the tools used.</p>
       </PageHeader>
 
       <section className="mx-auto max-w-7xl px-5 py-16 md:px-10 md:py-20" aria-label="Project index">

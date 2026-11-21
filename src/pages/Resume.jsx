@@ -18,7 +18,7 @@ export default function Resume() {
     <>
       <PageHeader label="Resume" title="Curriculum vitae.">
         <div className="space-y-6">
-          <p>A one-page summary of my education, skills, and work. A printable PDF will be linked once the final content is supplied.</p>
+          <p>A one-page summary of my education, skills, and work. Download the PDF for a printable copy.</p>
           <CvButton />
         </div>
       </PageHeader>

@@ -78,7 +78,7 @@ export const projects = [
     live: 'https://pet-adoption-management-system-nu.vercel.app',
     caseStudy: {
       overview:
-        'FurEverHome is a data-driven command center for animal shelters. It manages the shelter lifecycle from a single interface, replacing simple lists with analytics, clinical logs, and an adoption pipeline.',
+        'FurEverHome gives animal shelters one place to manage pets, medical records, foster placements, and adoption applications.',
       problem:
         'Shelters that track pets, medical care, adopters, and foster homes in simple lists struggle to see the whole picture: who is available, who needs medical attention, and where each adoption application stands. FurEverHome was built to bring these records together.',
       objectives: [
@@ -115,7 +115,7 @@ export const projects = [
     live: '',
     caseStudy: {
       overview:
-        'Nahum Stock streamlines Café Nahum inventory operations through automated stock monitoring, centralized record management, and inventory tracking. It replaces spreadsheet-based processes with a digital solution designed to improve accuracy, reduce manual work, minimize waste, and support more efficient daily operations.',
+        'Nahum Stock replaces Café Nahum’s spreadsheets with one system for stock levels, transactions, suppliers, expiry dates, and reports.',
       problem:
         'Café Nahum relied on manual records and spreadsheets, making inventory updates error-prone and inconsistent with actual stock. Low-stock items, products nearing expiration, supplier information, and inventory reports all required additional manual effort without a centralized management platform.',
       objectives: [
@@ -128,7 +128,7 @@ export const projects = [
         'Improve inventory accuracy and controlled access to information.',
       ],
       solution:
-        'Nahum Stock provides a centralized inventory management platform tailored to Café Nahum. Authorized personnel can manage supplies, record stock movements, monitor quantities, maintain supplier information, and review low-stock and expiration alerts through an organized interface with reporting and audit capabilities.',
+        'Authorized staff can manage supplies, record stock movements, review low-stock and expiry alerts, and keep supplier records in one place.',
       role: 'Backend Developer. I developed the application logic, database operations, authentication, and server-side functionality supporting the inventory management processes.',
       features: [
         'Centralized inventory records and stock quantity management',

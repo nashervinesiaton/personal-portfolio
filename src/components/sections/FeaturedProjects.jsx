@@ -25,7 +25,7 @@ export default function FeaturedProjects({ all = false, showAllLink = !all }) {
             Projects built around real problems.
           </h2>
           <p className="mt-8 max-w-2xl text-sm leading-relaxed text-mute md:text-base">
-            A selection of academic and personal projects focused on building practical digital solutions through development, experimentation, and problem-solving.
+            Projects from coursework and independent practice, including a cooperative finance platform, a pet adoption record system, and an inventory tool for a café.
           </p>
           {showAllLink && (
             <Link to="/projects" className="group mt-6 inline-flex items-center gap-2 text-sm font-semibold text-paper transition-colors hover:text-accent">
